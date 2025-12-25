@@ -6,6 +6,7 @@ import com.example.navigator.api.NavCommand
 import com.example.navigator.api.NavExecutor
 import com.example.navigator.api.NavLogger
 import com.example.navigator.api.RouteRegistry
+import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.withContext
@@ -17,8 +18,9 @@ internal class Router(
     private val registry: RouteRegistry,
     private val logger: NavLogger,
     private val executors: Map<HostType, NavExecutor>,
-    private val hostReadyChecks: Map<HostType, () -> Boolean>,
-    private val onHostSwitch: (HostType) -> Unit = {}
+    private val hostReadyChecks: Map<HostType, () -> Boolean> = emptyMap(),
+    private val onHostSwitch: (HostType) -> Unit = {},
+    private val mainDispatcher: CoroutineDispatcher = Dispatchers.Main
 ) {
     @Volatile
     private var activeHost: HostType = HostType.FRAGMENT
@@ -42,7 +44,7 @@ internal class Router(
         // Switch host visibility if needed
         if (spec.host != HostType.ACTIVITY && spec.host != activeHost) {
             activeHost = spec.host
-            withContext(Dispatchers.Main) {
+            withContext(mainDispatcher) {
                 onHostSwitch(spec.host)
             }
         }

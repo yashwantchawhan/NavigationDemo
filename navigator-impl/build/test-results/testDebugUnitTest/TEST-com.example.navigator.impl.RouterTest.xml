@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.example.navigator.impl.RouterTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2025-12-25T02:35:34.779Z" hostname="Redmi-Note-9-Pro-Max.mirage1furnishednew" time="0.074">
+  <properties/>
+  <testcase name="does not call onHostSwitch for activity navigation" classname="com.example.navigator.impl.RouterTest" time="0.055"/>
+  <testcase name="dispatch routes to compose executor" classname="com.example.navigator.impl.RouterTest" time="0.003"/>
+  <testcase name="dispatch routes to fragment executor" classname="com.example.navigator.impl.RouterTest" time="0.003"/>
+  <testcase name="back uses active host executor" classname="com.example.navigator.impl.RouterTest" time="0.003"/>
+  <testcase name="logs success on successful navigation" classname="com.example.navigator.impl.RouterTest" time="0.002"/>
+  <testcase name="logs failure on failed navigation" classname="com.example.navigator.impl.RouterTest" time="0.003"/>
+  <testcase name="dispatch routes to activity executor" classname="com.example.navigator.impl.RouterTest" time="0.002"/>
+  <testcase name="calls onHostSwitch when switching between fragment and compose" classname="com.example.navigator.impl.RouterTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

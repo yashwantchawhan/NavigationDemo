@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=edge"/>
+<title>Test results - Class com.example.navigator.impl.AppNavigatorTest</title>
+<link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
+<link href="../css/style.css" rel="stylesheet" type="text/css"/>
+<script src="../js/report.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="content">
+<h1>Class com.example.navigator.impl.AppNavigatorTest</h1>
+<div class="breadcrumbs">
+<a href="../index.html">all</a> &gt; 
+<a href="../packages/com.example.navigator.impl.html">com.example.navigator.impl</a> &gt; AppNavigatorTest</div>
+<div id="summary">
+<table>
+<tr>
+<td>
+<div class="summaryGroup">
+<table>
+<tr>
+<td>
+<div class="infoBox" id="tests">
+<div class="counter">7</div>
+<p>tests</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="failures">
+<div class="counter">2</div>
+<p>failures</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="ignored">
+<div class="counter">0</div>
+<p>ignored</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="duration">
+<div class="counter">0.834s</div>
+<p>duration</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td>
+<div class="infoBox failures" id="successRate">
+<div class="percent">71%</div>
+<p>successful</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="tab-container">
+<ul class="tabLinks">
+<li>
+<a href="#">Failed tests</a>
+</li>
+<li>
+<a href="#">Tests</a>
+</li>
+</ul>
+<div class="tab">
+<h2>Failed tests</h2>
+<div class="test">
+<a name="navigate logs queued event"></a>
+<h3 class="failures">navigate logs queued event</h3>
+<span class="code">
+<pre>java.lang.AssertionError: Verification failed: call 1 of 1: NavLogger(#20).onQueued(matcher&lt;NavCommand&gt;(), matcher&lt;DestinationSpec&gt;())). Only one matching call to NavLogger(#20)/onQueued(NavCommand, DestinationSpec) happened, but arguments are not matching:
+[0]: argument: NavCommand(id=07001b44, route=Home, source=test, timestampMs=1766630134760), matcher: matcher&lt;NavCommand&gt;(), result: +
+[1]: argument: DestinationSpec(host=FRAGMENT, name=Details), matcher: matcher&lt;DestinationSpec&gt;(), result: -
+
+Stack trace:
+                                                 io.mockk.impl.InternalPlatform.captureStackTrace                            (InternalPlatform.kt:125)                    
+                                                   io.mockk.impl.stub.MockKStub.handleInvocation                             (MockKStub.kt:253)                           
+                 io.mockk.impl.instantiation.JvmMockFactoryHelper$mockHandler$1.invocation                                   (JvmMockFactoryHelper.kt:24)                 
+                                          io.mockk.proxy.jvm.advice.Interceptor.call                                         (Interceptor.kt:21)                          
+                                           io.mockk.proxy.jvm.advice.BaseAdvice.handle                                       (BaseAdvice.kt:42)                           
+                         io.mockk.proxy.jvm.advice.jvm.JvmMockKProxyInterceptor.interceptNoSuper                             (JvmMockKProxyInterceptor.java:45)           
+                                  com.example.navigator.api.NavLogger$Subclass1.onQueued                                     (-:-1)                                       
+                                        com.example.navigator.impl.AppNavigator.navigate                                     (AppNavigator.kt:56)                         
+       com.example.navigator.impl.AppNavigatorTest$navigate logs queued event$1.invokeSuspend                                (AppNavigatorTest.kt:70)                     
+       com.example.navigator.impl.AppNavigatorTest$navigate logs queued event$1.invoke                                       (AppNavigatorTest.kt:-1)                     
+       com.example.navigator.impl.AppNavigatorTest$navigate logs queued event$1.invoke                                       (AppNavigatorTest.kt:-1)                     
+           kotlinx.coroutines.test.TestBuildersKt__TestBuildersKt$runTest$2$1$1.invokeSuspend                                (TestBuilders.kt:318)                        
+                            kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith                                   (ContinuationImpl.kt:33)                     
+                                              kotlinx.coroutines.DispatchedTask.run                                          (DispatchedTask.kt:101)                      
+                                         kotlinx.coroutines.test.TestDispatcher.processEvent$kotlinx_coroutines_test         (TestDispatcher.kt:24)                       
+                                 kotlinx.coroutines.test.TestCoroutineScheduler.tryRunNextTaskUnless$kotlinx_coroutines_test (TestCoroutineScheduler.kt:99)               
+kotlinx.coroutines.test.TestBuildersKt__TestBuildersKt$runTest$2$1$workRunner$1.invokeSuspend                                (TestBuilders.kt:327)                        
+                            kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith                                   (ContinuationImpl.kt:33)                     
+                                              kotlinx.coroutines.DispatchedTask.run                                          (DispatchedTask.kt:101)                      
+                                           kotlinx.coroutines.EventLoopImplBase.processNextEvent                             (EventLoop.common.kt:263)                    
+                                           kotlinx.coroutines.BlockingCoroutine.joinBlocking                                 (Builders.kt:95)                             
+                                      kotlinx.coroutines.BuildersKt__BuildersKt.runBlocking                                  (Builders.kt:69)                             
+                                                  kotlinx.coroutines.BuildersKt.runBlocking                                  (-:1)                                        
+                                      kotlinx.coroutines.BuildersKt__BuildersKt.runBlocking$default                          (Builders.kt:47)                             
+                                                  kotlinx.coroutines.BuildersKt.runBlocking$default                          (-:1)                                        
+                                      kotlinx.coroutines.test.TestBuildersJvmKt.createTestResult                             (TestBuildersJvm.kt:10)                      
+                         kotlinx.coroutines.test.TestBuildersKt__TestBuildersKt.runTest-8Mi8wO0                              (TestBuilders.kt:310)                        
+                                         kotlinx.coroutines.test.TestBuildersKt.runTest-8Mi8wO0                              (-:1)                                        
+                         kotlinx.coroutines.test.TestBuildersKt__TestBuildersKt.runTest-8Mi8wO0                              (TestBuilders.kt:168)                        
+                                         kotlinx.coroutines.test.TestBuildersKt.runTest-8Mi8wO0                              (-:1)                                        
+                         kotlinx.coroutines.test.TestBuildersKt__TestBuildersKt.runTest-8Mi8wO0$default                      (TestBuilders.kt:160)                        
+                                         kotlinx.coroutines.test.TestBuildersKt.runTest-8Mi8wO0$default                      (-:1)                                        
+                                    com.example.navigator.impl.AppNavigatorTest.navigate logs queued event                   (AppNavigatorTest.kt:69)                     
+                                  jdk.internal.reflect.NativeMethodAccessorImpl.invoke0                                      (NativeMethodAccessorImpl.java:-2)N          
+                                  jdk.internal.reflect.NativeMethodAccessorImpl.invoke                                       (NativeMethodAccessorImpl.java:77)           
+                              jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke                                       (DelegatingMethodAccessorImpl.java:43)       
+                                                       java.lang.reflect.Method.invoke                                       (Method.java:568)                            
+                                      org.junit.runners.model.FrameworkMethod$1.runReflectiveCall                            (FrameworkMethod.java:59)                    
+                            org.junit.internal.runners.model.ReflectiveCallable.run                                          (ReflectiveCallable.java:12)                 
+                                        org.junit.runners.model.FrameworkMethod.invokeExplosively                            (FrameworkMethod.java:56)                    
+                             org.junit.internal.runners.statements.InvokeMethod.evaluate                                     (InvokeMethod.java:17)                       
+                               org.junit.internal.runners.statements.RunBefores.evaluate                                     (RunBefores.java:26)                         
+                                               org.junit.runners.ParentRunner$3.evaluate                                     (ParentRunner.java:306)                      
+                                     org.junit.runners.BlockJUnit4ClassRunner$1.evaluate                                     (BlockJUnit4ClassRunner.java:100)            
+                                                 org.junit.runners.ParentRunner.runLeaf                                      (ParentRunner.java:366)                      
+                                       org.junit.runners.BlockJUnit4ClassRunner.runChild                                     (BlockJUnit4ClassRunner.java:103)            
+                                       org.junit.runners.BlockJUnit4ClassRunner.runChild                                     (BlockJUnit4ClassRunner.java:63)             
+                                               org.junit.runners.ParentRunner$4.run                                          (ParentRunner.java:331)                      
+                                               org.junit.runners.ParentRunner$1.schedule                                     (ParentRunner.java:79)                       
+                                                 org.junit.runners.ParentRunner.runChildren                                  (ParentRunner.java:329)                      
+                                                 org.junit.runners.ParentRunner.access$100                                   (ParentRunner.java:66)                       
+                                               org.junit.runners.ParentRunner$2.evaluate                                     (ParentRunner.java:293)                      
+                                               org.junit.runners.ParentRunner$3.evaluate                                     (ParentRunner.java:306)                      
+                                                 org.junit.runners.ParentRunner.run                                          (ParentRunner.java:413)                      
+             org.gradle.api.internal.tasks.testing.junit.JUnitTestClassExecutor.runTestClass                                 (JUnitTestClassExecutor.java:112)            
+             org.gradle.api.internal.tasks.testing.junit.JUnitTestClassExecutor.execute                                      (JUnitTestClassExecutor.java:58)             
+             org.gradle.api.internal.tasks.testing.junit.JUnitTestClassExecutor.execute                                      (JUnitTestClassExecutor.java:40)             
+    org.gradle.api.internal.tasks.testing.junit.AbstractJUnitTestClassProcessor.processTestClass                             (AbstractJUnitTestClassProcessor.java:54)    
+                  org.gradle.api.internal.tasks.testing.SuiteTestClassProcessor.processTestClass                             (SuiteTestClassProcessor.java:53)            
+                                  jdk.internal.reflect.NativeMethodAccessorImpl.invoke0                                      (NativeMethodAccessorImpl.java:-2)N          
+                                  jdk.internal.reflect.NativeMethodAccessorImpl.invoke                                       (NativeMethodAccessorImpl.java:77)           
+                              jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke                                       (DelegatingMethodAccessorImpl.java:43)       
+                                                       java.lang.reflect.Method.invoke                                       (Method.java:568)                            
+                                org.gradle.internal.dispatch.ReflectionDispatch.dispatch                                     (ReflectionDispatch.java:36)                 
+                                org.gradle.internal.dispatch.ReflectionDispatch.dispatch                                     (ReflectionDispatch.java:24)                 
+                        org.gradle.internal.dispatch.ContextClassLoaderDispatch.dispatch                                     (ContextClassLoaderDispatch.java:33)         
+ org.gradle.internal.dispatch.ProxyDispatchAdapter$DispatchingInvocationHandler.invoke                                       (ProxyDispatchAdapter.java:92)               
+                                                             jdk.proxy1.$Proxy4.processTestClass                             (-:-1)                                       
+                      org.gradle.api.internal.tasks.testing.worker.TestWorker$2.run                                          (TestWorker.java:183)                        
+                        org.gradle.api.internal.tasks.testing.worker.TestWorker.executeAndMaintainThreadName                 (TestWorker.java:132)                        
+                        org.gradle.api.internal.tasks.testing.worker.TestWorker.execute                                      (TestWorker.java:103)                        
+                        org.gradle.api.internal.tasks.testing.worker.TestWorker.execute                                      (TestWorker.java:63)                         
+                 org.gradle.process.internal.worker.child.ActionExecutionWorker.execute                                      (ActionExecutionWorker.java:56)              
+    org.gradle.process.internal.worker.child.SystemApplicationClassLoaderWorker.call                                         (SystemApplicationClassLoaderWorker.java:121)
+    org.gradle.process.internal.worker.child.SystemApplicationClassLoaderWorker.call                                         (SystemApplicationClassLoaderWorker.java:71) 
+                     worker.org.gradle.process.internal.worker.GradleWorkerMain.run                                          (GradleWorkerMain.java:69)                   
+                     worker.org.gradle.process.internal.worker.GradleWorkerMain.main                                         (GradleWorkerMain.java:74)                   
+	at io.mockk.impl.recording.states.VerifyingState.failIfNotPassed(VerifyingState.kt:63)
+	at io.mockk.impl.recording.states.VerifyingState.recordingDone(VerifyingState.kt:42)
+	at io.mockk.impl.recording.CommonCallRecorder.done(CommonCallRecorder.kt:47)
+	at io.mockk.impl.eval.RecordedBlockEvaluator.record(RecordedBlockEvaluator.kt:63)
+	at io.mockk.impl.eval.VerifyBlockEvaluator.verify(VerifyBlockEvaluator.kt:30)
+	at io.mockk.MockKDsl.internalVerify(API.kt:120)
+	at io.mockk.MockKKt.verify(MockK.kt:218)
+	at io.mockk.MockKKt.verify$default(MockK.kt:209)
+	at com.example.navigator.impl.AppNavigatorTest$navigate logs queued event$1.invokeSuspend(AppNavigatorTest.kt:72)
+	at com.example.navigator.impl.AppNavigatorTest$navigate logs queued event$1.invoke(AppNavigatorTest.kt)
+	at com.example.navigator.impl.AppNavigatorTest$navigate logs queued event$1.invoke(AppNavigatorTest.kt)
+	at kotlinx.coroutines.test.TestBuildersKt__TestBuildersKt$runTest$2$1$1.invokeSuspend(TestBuilders.kt:318)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:33)
+	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:101)
+	at kotlinx.coroutines.test.TestDispatcher.processEvent$kotlinx_coroutines_test(TestDispatcher.kt:24)
+	at kotlinx.coroutines.test.TestCoroutineScheduler.tryRunNextTaskUnless$kotlinx_coroutines_test(TestCoroutineScheduler.kt:99)
+	at kotlinx.coroutines.test.TestBuildersKt__TestBuildersKt$runTest$2$1$workRunner$1.invokeSuspend(TestBuilders.kt:327)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:33)
+	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:101)
+	at kotlinx.coroutines.EventLoopImplBase.processNextEvent(EventLoop.common.kt:263)
+	at kotlinx.coroutines.BlockingCoroutine.joinBlocking(Builders.kt:95)
+	at kotlinx.coroutines.BuildersKt__BuildersKt.runBlocking(Builders.kt:69)
+	at kotlinx.coroutines.BuildersKt.runBlocking(Unknown Source)
+	at kotlinx.coroutines.BuildersKt__BuildersKt.runBlocking$default(Builders.kt:47)
+	at kotlinx.coroutines.BuildersKt.runBlocking$default(Unknown Source)
+	at kotlinx.coroutines.test.TestBuildersJvmKt.createTestResult(TestBuildersJvm.kt:10)
+	at kotlinx.coroutines.test.TestBuildersKt__TestBuildersKt.runTest-8Mi8wO0(TestBuilders.kt:310)
+	at kotlinx.coroutines.test.TestBuildersKt.runTest-8Mi8wO0(Unknown Source)
+	at kotlinx.coroutines.test.TestBuildersKt__TestBuildersKt.runTest-8Mi8wO0(TestBuilders.kt:168)
+	at kotlinx.coroutines.test.TestBuildersKt.runTest-8Mi8wO0(Unknown Source)
+	at kotlinx.coroutines.test.TestBuildersKt__TestBuildersKt.runTest-8Mi8wO0$default(TestBuilders.kt:160)
+	at kotlinx.coroutines.test.TestBuildersKt.runTest-8Mi8wO0$default(Unknown Source)
+	at com.example.navigator.impl.AppNavigatorTest.navigate logs queued event(AppNavigatorTest.kt:69)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:63)
+	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
+	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
+	at org.gradle.api.internal.tasks.testing.junit.JUnitTestClassExecutor.runTestClass(JUnitTestClassExecutor.java:112)
+	at org.gradle.api.internal.tasks.testing.junit.JUnitTestClassExecutor.execute(JUnitTestClassExecutor.java:58)
+	at org.gradle.api.internal.tasks.testing.junit.JUnitTestClassExecutor.execute(JUnitTestClassExecutor.java:40)
+	at org.gradle.api.internal.tasks.testing.junit.AbstractJUnitTestClassProcessor.processTestClass(AbstractJUnitTestClassProcessor.java:54)
+	at org.gradle.api.internal.tasks.testing.SuiteTestClassProcessor.processTestClass(SuiteTestClassProcessor.java:53)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:36)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
+	at org.gradle.internal.dispatch.ContextClassLoaderDispatch.dispatch(ContextClassLoaderDispatch.java:33)
+	at org.gradle.internal.dispatch.ProxyDispatchAdapter$DispatchingInvocationHandler.invoke(ProxyDispatchAdapter.java:92)
+	at jdk.proxy1/jdk.proxy1.$Proxy4.processTestClass(Unknown Source)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker$2.run(TestWorker.java:183)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.executeAndMaintainThreadName(TestWorker.java:132)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.execute(TestWorker.java:103)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.execute(TestWorker.java:63)
+	at org.gradle.process.internal.worker.child.ActionExecutionWorker.execute(ActionExecutionWorker.java:56)
+	at org.gradle.process.internal.worker.child.SystemApplicationClassLoaderWorker.call(SystemApplicationClassLoaderWorker.java:121)
+	at org.gradle.process.internal.worker.child.SystemApplicationClassLoaderWorker.call(SystemApplicationClassLoaderWorker.java:71)
+	at worker.org.gradle.process.internal.worker.GradleWorkerMain.run(GradleWorkerMain.java:69)
+	at worker.org.gradle.process.internal.worker.GradleWorkerMain.main(GradleWorkerMain.java:74)
+</pre>
+</span>
+</div>
+<div class="test">
+<a name="same route after dedupe window goes through"></a>
+<h3 class="failures">same route after dedupe window goes through</h3>
+<span class="code">
+<pre>java.lang.AssertionError: Verification failed: call 1 of 1: Router(#12).dispatch(any(), any())). One matching call found, but needs at least 2 and at most 2 calls
+Call: Router(#12).dispatch(NavCommand(id=ea5e691d, route=Home, source=source, timestampMs=1766630134742), continuation {})
+Stack trace:
+                                                           io.mockk.impl.InternalPlatform.captureStackTrace                            (InternalPlatform.kt:125)                    
+                                                             io.mockk.impl.stub.MockKStub.handleInvocation                             (MockKStub.kt:253)                           
+                           io.mockk.impl.instantiation.JvmMockFactoryHelper$mockHandler$1.invocation                                   (JvmMockFactoryHelper.kt:24)                 
+                                                    io.mockk.proxy.jvm.advice.Interceptor.call                                         (Interceptor.kt:21)                          
+                                                        com.example.navigator.impl.Router.dispatch                                     (Router.kt:28)                               
+                                                com.example.navigator.impl.AppNavigator$1.invokeSuspend                                (AppNavigator.kt:37)                         
+                                      kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith                                   (ContinuationImpl.kt:33)                     
+                                                      kotlinx.coroutines.DispatchedTaskKt.resume                                       (DispatchedTask.kt:221)                      
+                                                      kotlinx.coroutines.DispatchedTaskKt.resumeUnconfined                             (DispatchedTask.kt:177)                      
+                                                      kotlinx.coroutines.DispatchedTaskKt.dispatch                                     (DispatchedTask.kt:149)                      
+                                           kotlinx.coroutines.CancellableContinuationImpl.dispatchResume                               (CancellableContinuationImpl.kt:470)         
+                                           kotlinx.coroutines.CancellableContinuationImpl.completeResume                               (CancellableContinuationImpl.kt:591)         
+                                            kotlinx.coroutines.channels.BufferedChannelKt.tryResume0                                   (BufferedChannel.kt:2957)                    
+                                            kotlinx.coroutines.channels.BufferedChannelKt.access$tryResume0                            (BufferedChannel.kt:1)                       
+                      kotlinx.coroutines.channels.BufferedChannel$BufferedChannelIterator.tryResumeHasNext                             (BufferedChannel.kt:1719)                    
+                                              kotlinx.coroutines.channels.BufferedChannel.tryResumeReceiver                            (BufferedChannel.kt:662)                     
+                                              kotlinx.coroutines.channels.BufferedChannel.updateCellSend                               (BufferedChannel.kt:478)                     
+                                              kotlinx.coroutines.channels.BufferedChannel.access$updateCellSend                        (BufferedChannel.kt:33)                      
+                                              kotlinx.coroutines.channels.BufferedChannel.trySend-JP2dKIU                              (BufferedChannel.kt:3360)                    
+                                                  com.example.navigator.impl.AppNavigator.navigate                                     (AppNavigator.kt:57)                         
+com.example.navigator.impl.AppNavigatorTest$same route after dedupe window goes through$1.invokeSuspend                                (AppNavigatorTest.kt:114)                    
+com.example.navigator.impl.AppNavigatorTest$same route after dedupe window goes through$1.invoke                                       (AppNavigatorTest.kt:-1)                     
+com.example.navigator.impl.AppNavigatorTest$same route after dedupe window goes through$1.invoke                                       (AppNavigatorTest.kt:-1)                     
+                     kotlinx.coroutines.test.TestBuildersKt__TestBuildersKt$runTest$2$1$1.invokeSuspend                                (TestBuilders.kt:318)                        
+                                      kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith                                   (ContinuationImpl.kt:33)                     
+                                                        kotlinx.coroutines.DispatchedTask.run                                          (DispatchedTask.kt:101)                      
+                                                   kotlinx.coroutines.test.TestDispatcher.processEvent$kotlinx_coroutines_test         (TestDispatcher.kt:24)                       
+                                           kotlinx.coroutines.test.TestCoroutineScheduler.tryRunNextTaskUnless$kotlinx_coroutines_test (TestCoroutineScheduler.kt:99)               
+          kotlinx.coroutines.test.TestBuildersKt__TestBuildersKt$runTest$2$1$workRunner$1.invokeSuspend                                (TestBuilders.kt:327)                        
+                                      kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith                                   (ContinuationImpl.kt:33)                     
+                                                        kotlinx.coroutines.DispatchedTask.run                                          (DispatchedTask.kt:101)                      
+                                                     kotlinx.coroutines.EventLoopImplBase.processNextEvent                             (EventLoop.common.kt:263)                    
+                                                     kotlinx.coroutines.BlockingCoroutine.joinBlocking                                 (Builders.kt:95)                             
+                                                kotlinx.coroutines.BuildersKt__BuildersKt.runBlocking                                  (Builders.kt:69)                             
+                                                            kotlinx.coroutines.BuildersKt.runBlocking                                  (-:1)                                        
+                                                kotlinx.coroutines.BuildersKt__BuildersKt.runBlocking$default                          (Builders.kt:47)                             
+                                                            kotlinx.coroutines.BuildersKt.runBlocking$default                          (-:1)                                        
+                                                kotlinx.coroutines.test.TestBuildersJvmKt.createTestResult                             (TestBuildersJvm.kt:10)                      
+                                   kotlinx.coroutines.test.TestBuildersKt__TestBuildersKt.runTest-8Mi8wO0                              (TestBuilders.kt:310)                        
+                                                   kotlinx.coroutines.test.TestBuildersKt.runTest-8Mi8wO0                              (-:1)                                        
+                                   kotlinx.coroutines.test.TestBuildersKt__TestBuildersKt.runTest-8Mi8wO0                              (TestBuilders.kt:168)                        
+                                                   kotlinx.coroutines.test.TestBuildersKt.runTest-8Mi8wO0                              (-:1)                                        
+                                   kotlinx.coroutines.test.TestBuildersKt__TestBuildersKt.runTest-8Mi8wO0$default                      (TestBuilders.kt:160)                        
+                                                   kotlinx.coroutines.test.TestBuildersKt.runTest-8Mi8wO0$default                      (-:1)                                        
+                                              com.example.navigator.impl.AppNavigatorTest.same route after dedupe window goes through  (AppNavigatorTest.kt:113)                    
+                                            jdk.internal.reflect.NativeMethodAccessorImpl.invoke0                                      (NativeMethodAccessorImpl.java:-2)N          
+                                            jdk.internal.reflect.NativeMethodAccessorImpl.invoke                                       (NativeMethodAccessorImpl.java:77)           
+                                        jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke                                       (DelegatingMethodAccessorImpl.java:43)       
+                                                                 java.lang.reflect.Method.invoke                                       (Method.java:568)                            
+                                                org.junit.runners.model.FrameworkMethod$1.runReflectiveCall                            (FrameworkMethod.java:59)                    
+                                      org.junit.internal.runners.model.ReflectiveCallable.run                                          (ReflectiveCallable.java:12)                 
+                                                  org.junit.runners.model.FrameworkMethod.invokeExplosively                            (FrameworkMethod.java:56)                    
+                                       org.junit.internal.runners.statements.InvokeMethod.evaluate                                     (InvokeMethod.java:17)                       
+                                         org.junit.internal.runners.statements.RunBefores.evaluate                                     (RunBefores.java:26)                         
+                                                         org.junit.runners.ParentRunner$3.evaluate                                     (ParentRunner.java:306)                      
+                                               org.junit.runners.BlockJUnit4ClassRunner$1.evaluate                                     (BlockJUnit4ClassRunner.java:100)            
+                                                           org.junit.runners.ParentRunner.runLeaf                                      (ParentRunner.java:366)                      
+                                                 org.junit.runners.BlockJUnit4ClassRunner.runChild                                     (BlockJUnit4ClassRunner.java:103)            
+                                                 org.junit.runners.BlockJUnit4ClassRunner.runChild                                     (BlockJUnit4ClassRunner.java:63)             
+                                                         org.junit.runners.ParentRunner$4.run                                          (ParentRunner.java:331)                      
+                                                         org.junit.runners.ParentRunner$1.schedule                                     (ParentRunner.java:79)                       
+                                                           org.junit.runners.ParentRunner.runChildren                                  (ParentRunner.java:329)                      
+                                                           org.junit.runners.ParentRunner.access$100                                   (ParentRunner.java:66)                       
+                                                         org.junit.runners.ParentRunner$2.evaluate                                     (ParentRunner.java:293)                      
+                                                         org.junit.runners.ParentRunner$3.evaluate                                     (ParentRunner.java:306)                      
+                                                           org.junit.runners.ParentRunner.run                                          (ParentRunner.java:413)                      
+                       org.gradle.api.internal.tasks.testing.junit.JUnitTestClassExecutor.runTestClass                                 (JUnitTestClassExecutor.java:112)            
+                       org.gradle.api.internal.tasks.testing.junit.JUnitTestClassExecutor.execute                                      (JUnitTestClassExecutor.java:58)             
+                       org.gradle.api.internal.tasks.testing.junit.JUnitTestClassExecutor.execute                                      (JUnitTestClassExecutor.java:40)             
+              org.gradle.api.internal.tasks.testing.junit.AbstractJUnitTestClassProcessor.processTestClass                             (AbstractJUnitTestClassProcessor.java:54)    
+                            org.gradle.api.internal.tasks.testing.SuiteTestClassProcessor.processTestClass                             (SuiteTestClassProcessor.java:53)            
+                                            jdk.internal.reflect.NativeMethodAccessorImpl.invoke0                                      (NativeMethodAccessorImpl.java:-2)N          
+                                            jdk.internal.reflect.NativeMethodAccessorImpl.invoke                                       (NativeMethodAccessorImpl.java:77)           
+                                        jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke                                       (DelegatingMethodAccessorImpl.java:43)       
+                                                                 java.lang.reflect.Method.invoke                                       (Method.java:568)                            
+                                          org.gradle.internal.dispatch.ReflectionDispatch.dispatch                                     (ReflectionDispatch.java:36)                 
+                                          org.gradle.internal.dispatch.ReflectionDispatch.dispatch                                     (ReflectionDispatch.java:24)                 
+                                  org.gradle.internal.dispatch.ContextClassLoaderDispatch.dispatch                                     (ContextClassLoaderDispatch.java:33)         
+           org.gradle.internal.dispatch.ProxyDispatchAdapter$DispatchingInvocationHandler.invoke                                       (ProxyDispatchAdapter.java:92)               
+                                                                       jdk.proxy1.$Proxy4.processTestClass                             (-:-1)                                       
+                                org.gradle.api.internal.tasks.testing.worker.TestWorker$2.run                                          (TestWorker.java:183)                        
+                                  org.gradle.api.internal.tasks.testing.worker.TestWorker.executeAndMaintainThreadName                 (TestWorker.java:132)                        
+                                  org.gradle.api.internal.tasks.testing.worker.TestWorker.execute                                      (TestWorker.java:103)                        
+                                  org.gradle.api.internal.tasks.testing.worker.TestWorker.execute                                      (TestWorker.java:63)                         
+                           org.gradle.process.internal.worker.child.ActionExecutionWorker.execute                                      (ActionExecutionWorker.java:56)              
+              org.gradle.process.internal.worker.child.SystemApplicationClassLoaderWorker.call                                         (SystemApplicationClassLoaderWorker.java:121)
+              org.gradle.process.internal.worker.child.SystemApplicationClassLoaderWorker.call                                         (SystemApplicationClassLoaderWorker.java:71) 
+                               worker.org.gradle.process.internal.worker.GradleWorkerMain.run                                          (GradleWorkerMain.java:69)                   
+                               worker.org.gradle.process.internal.worker.GradleWorkerMain.main                                         (GradleWorkerMain.java:74)                   
+	at io.mockk.impl.recording.states.VerifyingState.failIfNotPassed(VerifyingState.kt:63)
+	at io.mockk.impl.recording.states.VerifyingState.recordingDone(VerifyingState.kt:42)
+	at io.mockk.impl.recording.CommonCallRecorder.done(CommonCallRecorder.kt:47)
+	at io.mockk.impl.eval.RecordedBlockEvaluator.record(RecordedBlockEvaluator.kt:63)
+	at io.mockk.impl.eval.VerifyBlockEvaluator.verify(VerifyBlockEvaluator.kt:30)
+	at io.mockk.MockKDsl.internalCoVerify(API.kt:145)
+	at io.mockk.MockKKt.coVerify(MockK.kt:244)
+	at io.mockk.MockKKt.coVerify$default(MockK.kt:235)
+	at com.example.navigator.impl.AppNavigatorTest$same route after dedupe window goes through$1.invokeSuspend(AppNavigatorTest.kt:119)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:33)
+	at kotlinx.coroutines.DispatchedTaskKt.resume(DispatchedTask.kt:221)
+	at kotlinx.coroutines.DispatchedTaskKt.dispatch(DispatchedTask.kt:154)
+	at kotlinx.coroutines.CancellableContinuationImpl.dispatchResume(CancellableContinuationImpl.kt:470)
+	at kotlinx.coroutines.CancellableContinuationImpl.resumeImpl$kotlinx_coroutines_core(CancellableContinuationImpl.kt:504)
+	at kotlinx.coroutines.CancellableContinuationImpl.resumeImpl$kotlinx_coroutines_core$default(CancellableContinuationImpl.kt:493)
+	at kotlinx.coroutines.CancellableContinuationImpl.resumeUndispatched(CancellableContinuationImpl.kt:596)
+	at kotlinx.coroutines.test.CancellableContinuationRunnable.run(TestDispatcher.kt:60)
+	at kotlinx.coroutines.test.TestDispatcher.processEvent$kotlinx_coroutines_test(TestDispatcher.kt:24)
+	at kotlinx.coroutines.test.TestCoroutineScheduler.tryRunNextTaskUnless$kotlinx_coroutines_test(TestCoroutineScheduler.kt:99)
+	at kotlinx.coroutines.test.TestBuildersKt__TestBuildersKt$runTest$2$1$workRunner$1.invokeSuspend(TestBuilders.kt:327)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:33)
+	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:101)
+	at kotlinx.coroutines.EventLoopImplBase.processNextEvent(EventLoop.common.kt:263)
+	at kotlinx.coroutines.BlockingCoroutine.joinBlocking(Builders.kt:95)
+	at kotlinx.coroutines.BuildersKt__BuildersKt.runBlocking(Builders.kt:69)
+	at kotlinx.coroutines.BuildersKt.runBlocking(Unknown Source)
+	at kotlinx.coroutines.BuildersKt__BuildersKt.runBlocking$default(Builders.kt:47)
+	at kotlinx.coroutines.BuildersKt.runBlocking$default(Unknown Source)
+	at kotlinx.coroutines.test.TestBuildersJvmKt.createTestResult(TestBuildersJvm.kt:10)
+	at kotlinx.coroutines.test.TestBuildersKt__TestBuildersKt.runTest-8Mi8wO0(TestBuilders.kt:310)
+	at kotlinx.coroutines.test.TestBuildersKt.runTest-8Mi8wO0(Unknown Source)
+	at kotlinx.coroutines.test.TestBuildersKt__TestBuildersKt.runTest-8Mi8wO0(TestBuilders.kt:168)
+	at kotlinx.coroutines.test.TestBuildersKt.runTest-8Mi8wO0(Unknown Source)
+	at kotlinx.coroutines.test.TestBuildersKt__TestBuildersKt.runTest-8Mi8wO0$default(TestBuilders.kt:160)
+	at kotlinx.coroutines.test.TestBuildersKt.runTest-8Mi8wO0$default(Unknown Source)
+	at com.example.navigator.impl.AppNavigatorTest.same route after dedupe window goes through(AppNavigatorTest.kt:113)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:63)
+	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
+	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
+	at org.gradle.api.internal.tasks.testing.junit.JUnitTestClassExecutor.runTestClass(JUnitTestClassExecutor.java:112)
+	at org.gradle.api.internal.tasks.testing.junit.JUnitTestClassExecutor.execute(JUnitTestClassExecutor.java:58)
+	at org.gradle.api.internal.tasks.testing.junit.JUnitTestClassExecutor.execute(JUnitTestClassExecutor.java:40)
+	at org.gradle.api.internal.tasks.testing.junit.AbstractJUnitTestClassProcessor.processTestClass(AbstractJUnitTestClassProcessor.java:54)
+	at org.gradle.api.internal.tasks.testing.SuiteTestClassProcessor.processTestClass(SuiteTestClassProcessor.java:53)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:36)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
+	at org.gradle.internal.dispatch.ContextClassLoaderDispatch.dispatch(ContextClassLoaderDispatch.java:33)
+	at org.gradle.internal.dispatch.ProxyDispatchAdapter$DispatchingInvocationHandler.invoke(ProxyDispatchAdapter.java:92)
+	at jdk.proxy1/jdk.proxy1.$Proxy4.processTestClass(Unknown Source)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker$2.run(TestWorker.java:183)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.executeAndMaintainThreadName(TestWorker.java:132)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.execute(TestWorker.java:103)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.execute(TestWorker.java:63)
+	at org.gradle.process.internal.worker.child.ActionExecutionWorker.execute(ActionExecutionWorker.java:56)
+	at org.gradle.process.internal.worker.child.SystemApplicationClassLoaderWorker.call(SystemApplicationClassLoaderWorker.java:121)
+	at org.gradle.process.internal.worker.child.SystemApplicationClassLoaderWorker.call(SystemApplicationClassLoaderWorker.java:71)
+	at worker.org.gradle.process.internal.worker.GradleWorkerMain.run(GradleWorkerMain.java:69)
+	at worker.org.gradle.process.internal.worker.GradleWorkerMain.main(GradleWorkerMain.java:74)
+</pre>
+</span>
+</div>
+</div>
+<div class="tab">
+<h2>Tests</h2>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Duration</th>
+<th>Result</th>
+</tr>
+</thead>
+<tr>
+<td class="success">back navigates with BackRoute</td>
+<td class="success">0.004s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">different routes are not deduped</td>
+<td class="success">0.796s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">duplicate navigations within dedupe window are dropped</td>
+<td class="success">0.003s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">nav command has unique id</td>
+<td class="success">0.003s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">navigate calls router dispatch</td>
+<td class="success">0.003s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="failures">navigate logs queued event</td>
+<td class="failures">0.007s</td>
+<td class="failures">failed</td>
+</tr>
+<tr>
+<td class="failures">same route after dedupe window goes through</td>
+<td class="failures">0.018s</td>
+<td class="failures">failed</td>
+</tr>
+</table>
+</div>
+</div>
+<div id="footer">
+<p>
+<div>
+<label class="hidden" id="label-for-line-wrapping-toggle" for="line-wrapping-toggle">Wrap lines
+<input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
+</label>
+</div>Generated by 
+<a href="https://www.gradle.org">Gradle 8.13</a> at 25-Dec-2025, 6:35:34 am</p>
+</div>
+</div>
+</body>
+</html>

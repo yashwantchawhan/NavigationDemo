@@ -23,4 +23,5 @@ rootProject.name = "NavigationDemo"
 include(":app")
 include(":navigator-api")
 include(":navigator-impl")
+include(":navigator-hilt")
  

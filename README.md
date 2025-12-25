@@ -1,23 +1,33 @@
 # Navigator
 
-Navigation library for Android that handles Fragments, Compose, and Activities in one place. No more scattered `findNavController()` calls.
+Navigation library for Android that handles Fragments, Compose, and Activities in one place.
 
-## Why?
+## Modules
 
-- One `navigator.navigate()` call instead of managing NavControllers everywhere
-- Built-in double-tap protection
-- Logs every navigation for easy debugging
-- Works across Fragment ↔ Compose ↔ Activity
+```
+navigator-api/    → Interfaces only (Navigator, Route, NavExecutor)
+navigator-impl/   → Core implementation
+navigator-hilt/   → Hilt integration for DI
+app/              → Demo app
+```
 
 ## Setup
 
+### Without Hilt
 ```kotlin
 dependencies {
     implementation(project(":navigator-impl"))
 }
 ```
 
-## Usage
+### With Hilt
+```kotlin
+dependencies {
+    implementation(project(":navigator-hilt"))
+}
+```
+
+## Quick Start
 
 ### 1. Define routes
 
@@ -28,21 +38,17 @@ sealed interface AppRoutes : Route {
 }
 ```
 
-### 2. Create registry
+### 2. Create registry & executor
 
 ```kotlin
 class AppRouteRegistry : RouteRegistry {
     override fun spec(route: Route) = when (route) {
         AppRoutes.Home -> DestinationSpec(HostType.FRAGMENT, "Home")
         is AppRoutes.Details -> DestinationSpec(HostType.COMPOSE, "Details")
-        else -> error("Unknown route")
+        else -> error("Unknown")
     }
 }
-```
 
-### 3. Create executor
-
-```kotlin
 class AppFragmentExecutor(
     private val navController: () -> NavController?
 ) : NavExecutor {
@@ -57,38 +63,89 @@ class AppFragmentExecutor(
 }
 ```
 
-### 4. Build navigator in Activity
+### 3. Build navigator
 
 ```kotlin
-class MainActivity : AppCompatActivity(), NavigatorProvider {
+val navigator = NavigatorBuilder(activity)
+    .registry(AppRouteRegistry())
+    .fragmentNavController { findNavController() }
+    .fragmentExecutor(AppFragmentExecutor { findNavController() })
+    .build()
+```
 
-    override val navigator by lazy {
-        NavigatorBuilder(this)
-            .registry(AppRouteRegistry())
-            .fragmentNavController { findNavController() }
-            .fragmentExecutor(AppFragmentExecutor { findNavController() })
-            .build()
+### 4. Navigate
+
+```kotlin
+navigator.navigate(AppRoutes.Details("123"), "button_click")
+navigator.back("back_pressed")
+```
+
+## With Hilt (Multi-Module)
+
+### In your :core:navigation module
+```kotlin
+@Module
+@InstallIn(SingletonComponent::class)
+object NavigatorBindingsModule {
+    @Provides
+    fun provideRegistry(): RouteRegistry = AppRouteRegistry()
+}
+```
+
+### In your :feature module
+```kotlin
+@Module
+@InstallIn(ActivityComponent::class)
+object FeatureNavigatorModule {
+    @Provides
+    @FragmentExecutor
+    fun provideExecutor(controllers: NavigatorControllers): NavExecutor =
+        FeatureFragmentExecutor { controllers.fragmentNavController }
+}
+```
+
+### In your Activity
+```kotlin
+@AndroidEntryPoint
+class MainActivity : AppCompatActivity() {
+    @Inject lateinit var navigatorFactory: NavigatorFactory
+    @Inject lateinit var controllers: NavigatorControllers
+
+    private val navigator by lazy {
+        navigatorFactory.create(this, controllers)
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        controllers.fragmentNavController = findNavController(R.id.nav_host)
     }
 }
 ```
 
-### 5. Navigate
-
+### In your Fragment (any module)
 ```kotlin
-// From Fragment
-navigator.navigate(AppRoutes.Details("123"), "button_click")
-
-// Go back
-navigator.back("back_pressed")
+class MyFragment : Fragment() {
+    fun onClick() {
+        navigator().navigate(AppRoutes.Details("123"), "click")
+    }
+}
 ```
 
-## Module Structure
+## Tests
 
+```bash
+./gradlew :navigator-impl:test
 ```
-navigator-api/    → Public interfaces (Navigator, Route, NavExecutor)
-navigator-impl/   → Implementation (NavigatorBuilder, Router, logging)
-app/              → Demo app
-```
+
+## Features
+
+- Single `navigate()` call instead of scattered NavControllers
+- Dedupe double-taps (600ms window)
+- Lifecycle-aware (waits for RESUMED)
+- Works across Fragment ↔ Compose ↔ Activity
+- Full logging for debugging
+- Type-safe routes with sealed interfaces
+- Hilt support for multi-module apps
 
 ## Logs
 
@@ -96,12 +153,6 @@ app/              → Demo app
 D/Navigator: QUEUED id=abc123 route=Details src=button_click
 D/Navigator: SUCCESS id=abc123
 W/Navigator: DROPPED id=def456 reason=dedupe_double_tap
-```
-
-## Run Demo
-
-```bash
-./gradlew installDebug
 ```
 
 ## License

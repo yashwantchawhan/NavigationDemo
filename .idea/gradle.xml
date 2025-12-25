@@ -11,6 +11,7 @@
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/navigator-api" />
+            <option value="$PROJECT_DIR$/navigator-hilt" />
             <option value="$PROJECT_DIR$/navigator-impl" />
           </set>
         </option>
